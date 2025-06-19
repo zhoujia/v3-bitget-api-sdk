@@ -7,6 +7,7 @@ import com.google.common.collect.Maps;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 public class MixOrderTest extends BaseTest {
@@ -69,6 +70,12 @@ public class MixOrderTest extends BaseTest {
         System.out.println(JSON.toJSONString(result));
 
         result = bitgetRestClient.bitget().v1().request().get("/api/mix/v1/market/contract-vip-level");
+        System.out.println(JSON.toJSONString(result));
+    }
+
+    @Test
+    public void getTickers() throws IOException {
+        ResponseResult result = bitgetRestClient.bitget().v2().request().get("/api/v2/spot/market/tickers", new HashMap<>());
         System.out.println(JSON.toJSONString(result));
     }
 }
